@@ -42,9 +42,8 @@ const userSchema = mongoose.Schema(
       type: String,
     },
     // refrencing to the image model
-    image: [
-        { type: mongoose.Schema.Types.ObjectId, ref: 'Image' }
-      ]
+    image: [{ type: mongoose.Schema.Types.ObjectId, ref: "Image" }],
   },
   { timestamps: true }
 );
+module.exports = mongoose.model("User", userSchema);

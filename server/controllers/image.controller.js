@@ -1,6 +1,6 @@
-const User = require("../models/user.model");
-const showAllUser = (req, res) => {
-  User.find()
+const Image = require("../models/image.model");
+const showAllImage = (req, res) => {
+  Image.find()
     .then((result) => {
       res.json(result);
     })
@@ -8,8 +8,8 @@ const showAllUser = (req, res) => {
       res.status(400).json(err);
     });
 };
-const showOneUser = (req, res) => {
-  User.findOne({ _id: req.params.id })
+const showOneImage = (req, res) => {
+  Image.findOne({ _id: req.params.id })
     .then((result) => {
       res.json(result);
     })
@@ -17,8 +17,8 @@ const showOneUser = (req, res) => {
       res.status(400).json(err);
     });
 };
-const editExistingUser = (req, res) => {
-  User.updateOne({ _id: req.params.id }, req.body, {
+const editExistingImage = (req, res) => {
+  Image.updateOne({ _id: req.params.id }, req.body, {
     new: true,
     runValidators: true,
   })
@@ -29,8 +29,8 @@ const editExistingUser = (req, res) => {
       res.status(400).json(err);
     });
 };
-const createNewUser = (req, res) => {
-  User.create(req.body)
+const createNewImage = (req, res) => {
+  Image.create(req.body)
     .then((result) => {
       res.json(result);
     })
@@ -38,8 +38,8 @@ const createNewUser = (req, res) => {
       res.status(400).json(err);
     });
 };
-const deleteExistingUser = (req, res) => {
-  User.deleteOne({ _id: req.params.id })
+const deleteExistingImage = (req, res) => {
+  Image.deleteOne({ _id: req.params.id })
     .then((result) => {
       res.json(result);
     })
@@ -49,9 +49,9 @@ const deleteExistingUser = (req, res) => {
 };
 
 module.exports = {
-  showAllUser,
-  showOneUser,
-  editExistingUser,
-  createNewUser,
-  deleteExistingUser,
+  showAllImage,
+  showOneImage,
+  editExistingImage,
+  createNewImage,
+  deleteExistingImage,
 };
