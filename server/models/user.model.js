@@ -1,4 +1,4 @@
-const Mongoose = require("mongoose");
+const mongoose = require("mongoose");
 const userSchema = mongoose.Schema(
   {
     firstName: {
@@ -22,11 +22,11 @@ const userSchema = mongoose.Schema(
         message: "Please enter a valid email",
       },
     },
-    gender: { type: String, enum: [female, male] },
+    gender: { type: String, enum: ["female", "male"] },
     dateOfBirth: {
       type: Date,
       required: [true, "Birth date is required"],
-      min: "1-1-2009",
+      // min: "1-1-2009",
     },
     password: {
       type: String,

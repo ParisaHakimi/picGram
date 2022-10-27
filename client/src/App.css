@@ -5,3 +5,25 @@
   margin: 0;
   box-sizing: border-box;
 }
+.profileImage {
+  width: 150px;
+  height: 150px;
+}
+.circle {
+  border-radius: 50%;
+}
+.pink {
+  background-color: pink;
+}
+.orange {
+  background-color: orange;
+}
+.size {
+  width: 32%;
+}
+.chat {
+  width: 80%;
+  min-height: 250px;
+  background-color: #ccc;
+  text-align: center;
+}
