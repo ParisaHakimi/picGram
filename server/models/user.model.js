@@ -15,7 +15,7 @@ const userSchema = mongoose.Schema(
       type: String,
       trim: true,
       lowercase: true,
-      unique: true,
+      // unique: true,
       required: [true, "Email is required"],
       validate: {
         validator: (val) => /^([\w-\.]+@([\w-]+\.)+[\w-]+)?$/.test(val),
@@ -33,11 +33,11 @@ const userSchema = mongoose.Schema(
       required: [true, "password is required"],
       minLength: [5, "password must be at least 5 character"],
     },
-    confirmPassword: {
-      type: String,
-      required: [true, "Confirm password is required"],
-      minLength: [5, "Confirm password must be at least 5 character"],
-    },
+    // confirmPassword: {
+    //   type: String,
+    //   required: [true, "Confirm password is required"],
+    //   minLength: [5, "Confirm password must be at least 5 character"],
+    // },
     profilePic: {
       type: String,
     },
