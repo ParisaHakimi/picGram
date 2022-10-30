@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 
 const SingleImage = () => {
   const [image, setImage] = useState("");
   const [like, setLike] = useState(false);
   const [likeCount, setLikeCount] = useState(218);
   const { id } = useParams();
+  const navigate = useNavigate();
   useEffect(() => {
     axios
       .get(`http://localhost:8000/api/image/${id}`)
@@ -15,7 +16,15 @@ const SingleImage = () => {
       })
       .catch((err) => console.log(err));
   }, []);
- 
+  const deleteHandler = (id) => {
+    axios
+      .delete(`http://localhost:8000/api/deleteImage/${id}`)
+      .then((res) => {
+        console.log("Deleted from database");
+        navigate("/");
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <div className="container p-3 w-75 grey">
       <div className="row mb-2">
@@ -25,38 +34,43 @@ const SingleImage = () => {
       </div>
       <div className="row mb-2  d-flex justify-content-around">
         <div className="col-3  ">
-          
-            {like ? (
-              <i
-                onClick={() => {
-                  setLike(!like);
-                  setLikeCount(likeCount - 1);
-                }}
-                className="fa fa-heart liked pointer"
-                aria-hidden="true"
-              ></i>
-            ) : (
-              <i
-                onClick={() => {
-                  setLike(!like);
-                  setLikeCount(likeCount + 1);
-                }}
-                className="fa fa-heart-o pointer"
-                aria-hidden="true"
-              ></i>
-            )}
-            <span className="ms-1 me-5">{likeCount} Like(s)</span>
-        
+          {like ? (
+            <i
+              onClick={() => {
+                setLike(!like);
+                setLikeCount(likeCount - 1);
+              }}
+              className="fa fa-heart liked pointer"
+              aria-hidden="true"
+            ></i>
+          ) : (
+            <i
+              onClick={() => {
+                setLike(!like);
+                setLikeCount(likeCount + 1);
+              }}
+              className="fa fa-heart-o pointer"
+              aria-hidden="true"
+            ></i>
+          )}
+          <span className="ms-1 me-5">{likeCount} Like(s)</span>
+
           <button className="btn  circle">
-            <i class="fa fa-comment-o " aria-hidden="true"></i>
+            <i className="fa fa-comment-o " aria-hidden="true"></i>
           </button>
         </div>
         <div className="col-3 d-flex justify-content-end">
-          <button className="btn btn-primary circle me-3">
-            <i class="fa fa-pencil" aria-hidden="true"></i>
-          </button>
-          <button className="btn btn-secondary circle">
-            <i class="fa fa-trash" aria-hidden="true"></i>
+          <Link
+            to={`/edit-photo/${image._id}`}
+            className="btn btn-primary circle me-3"
+          >
+            <i className="fa fa-pencil" aria-hidden="true"></i>
+          </Link>
+          <button
+            className="btn btn-secondary circle"
+            onClick={(e) => deleteHandler(image._id)}
+          >
+            <i className="fa fa-trash" aria-hidden="true"></i>
           </button>
         </div>
       </div>

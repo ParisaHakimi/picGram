@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 // import Home from './components/Home'
 import AddPost from "./components/AddPost";
+import EditPhoto from "./components/EditPhoto";
 import ProfilePage from "./components/ProfilePage";
 import SingleImage from "./components/SingleImage";
 import UserForm from "./components/UserForm";
@@ -15,6 +16,7 @@ function App() {
           <Route path="/userForm" element={<UserForm />} />
           <Route path="/addPost" element={<AddPost />} />
           <Route path="/single-image/:id" element={<SingleImage />} />
+          <Route path="edit-photo/:id" element={<EditPhoto />} />
         </Routes>
       </BrowserRouter>
     </div>
