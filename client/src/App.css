@@ -18,6 +18,9 @@
 .orange {
   background-color: orange;
 }
+.olive{
+  background-color: olive;
+}
 .size {
   width: 32%;
 }
@@ -34,8 +37,26 @@
   border-radius: 10px;
 }
 .gallery {
-  /* width: 32%; */
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.grey{
+  background-color: #eee;
+}
+.singleImage{
+  height: 60vh;
+}
+.singleImagedesc{
+  min-height: 50px;
+  line-height: 50px;
+}
+.liked {
+  color: red;
+}
+.singleImgBorder{
+  border: 3px double #aaa;
+}
+.pointer{
+  cursor: pointer;
 }

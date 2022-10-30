@@ -10,6 +10,9 @@ const ImageSchema = mongoose.Schema(
     postedImageComments: {
       type: String,
     },
+    isLiked:{
+      type:Boolean,
+    }
   },
   { timestamps: true }
 );
