@@ -26,7 +26,8 @@ const SingleImage = () => {
       .catch((err) => console.log(err));
   };
   return (
-    <div className="container p-3 w-75 grey">
+    <div className="container p-3 w-75 bodyColor">
+       <Link className="btn backToHomeBtn w-25 mb-3" to="/">Back to Home</Link>
       <div className="row mb-2">
         <div className="col-10 text-center  p-2 mx-auto singleImgBorder">
           <img src={image.postedImage} alt="" className="singleImage" />
@@ -62,7 +63,7 @@ const SingleImage = () => {
         <div className="col-3 d-flex justify-content-end">
           <Link
             to={`/edit-photo/${image._id}`}
-            className="btn btn-primary circle me-3"
+            className="btn editBtnColor circle me-3"
           >
             <i className="fa fa-pencil" aria-hidden="true"></i>
           </Link>
@@ -75,18 +76,19 @@ const SingleImage = () => {
         </div>
       </div>
       <div className="row mb-2 d-flex align-items-center justify-content-center">
-        <p className="border singleImagedesc w-75 ">
+        <p className="borderColor singleImagedesc w-75 ">
           Description: {image.postedImageDescription}
         </p>
       </div>
       <div className="row mb-2 d-flex align-items-center justify-content-center">
-        <p className="border singleImagedesc w-75 ">
+        <p className="borderColor singleImagedesc w-75 ">
           Comment: {image.postedImageComments} Lorem ipsum dolor sit amet
           consectetur adipisicing elit. Placeat cum illum ipsum at corporis modi
           nam autem molestiae sit assumenda, quisquam, maiores iure quam quos
           magnam consectetur quasi adipisci vel.
         </p>
       </div>
+      
     </div>
   );
 };

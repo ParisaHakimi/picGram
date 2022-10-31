@@ -20,10 +20,9 @@ const AddPost = () => {
       .catch((err) => console.log(err));
   };
   return (
-    <div className="container">
+    <div className="container bodyColor">
       <div className="row">
-        <Link to="/">Back to Home</Link>
-        <form className="addPostForm col-8 p-5 border" onSubmit={submitHandler}>
+        <form className="addPostForm col-8 p-5 borderColor" onSubmit={submitHandler}>
           <div className="mb-4">
             <h2 className="text-center">Create Post</h2>
           </div>
@@ -43,8 +42,10 @@ const AddPost = () => {
               onChange={(e) => setPostedImage(e.target.value)}
             />
           </div>
-          <div className="mb-3">
-            <button className="btn btn-success w-100">Add</button>
+          <div className="mb-3 d-flex justify-content-between align-items-center">
+        <Link className="btn backToHomeBtn w-25 me-2" to="/">Back to Home</Link>
+
+            <button className="btn addBtnColor w-75">Add</button>
           </div>
         </form>
       </div>

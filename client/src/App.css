@@ -5,9 +5,35 @@
   margin: 0;
   box-sizing: border-box;
 }
+.picGram {
+  background-color: #3c4048;
+  color: #00abb3;
+}
+.bodyColor {
+  background-color: #eaeaea;
+  min-height: 90vh;
+}
+.backToHomeBtn{
+  background-color: #C98474;
+  color: #3C2317;
+}
 .profileImage {
   width: 150px;
   height: 150px;
+}
+.borderColor {
+  border: 1px solid #b2b2b2;
+}
+.editBtnColor {
+  background-color: #4c6793;
+  color: #eaeaea;
+}
+.addBtnColor {
+  background-color: #4fa095;
+  color: #eaeaea;
+}
+.galleryBgr {
+  background-color: #b2b2b2;
 }
 .circle {
   border-radius: 50%;
@@ -18,7 +44,7 @@
 .orange {
   background-color: orange;
 }
-.olive{
+.olive {
   background-color: olive;
 }
 .size {
@@ -40,23 +66,28 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border: 1px solid #3c4048;
+  transition: 0.5s;
 }
-.grey{
+.gallery:hover {
+  transform: scale(1.1);
+}
+.grey {
   background-color: #eee;
 }
-.singleImage{
+.singleImage {
   height: 60vh;
 }
-.singleImagedesc{
+.singleImagedesc {
   min-height: 50px;
   line-height: 50px;
 }
 .liked {
   color: red;
 }
-.singleImgBorder{
+.singleImgBorder {
   border: 3px double #aaa;
 }
-.pointer{
+.pointer {
   cursor: pointer;
 }

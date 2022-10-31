@@ -18,19 +18,19 @@ const ProfilePage = () => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-12 mb-4">
-          <h2>PicGram</h2>
+        <div className="col-12 picGram">
+          <h2 className="p-3">PicGram</h2>
         </div>
-        <div className="container d-flex">
-          <div className="col-3 pe-3">
-            <div className="container text-center border p-2 mb-3">
+        <div className="container d-flex bodyColor p-3">
+          <div className="col-3  pe-3">
+            <div className="container text-center borderColor p-2 mb-3">
               <img
                 src="./images/profileImage.jpeg"
                 alt=""
                 className="rounded mx-auto d-block profileImage img-fluid"
               />
               <div className="container w-100 d-flex justify-content-around align-items-center mt-3">
-                <button type="button" className="btn btn-info circle">
+                <button type="button" className="btn editBtnColor circle">
                   <i className="fa fa-pencil" aria-hidden="true"></i>
                 </button>
                 <button type="button" className="btn btn-secondary circle">
@@ -46,17 +46,17 @@ const ProfilePage = () => {
                 consequuntur aliquid soluta, reiciendis exercitationem quaerat
                 delectus sapiente?
               </p>
-              <button type="button" className="btn btn-info w-50">
+              <button type="button" className="btn editBtnColor w-50">
                 Edit
               </button>
             </div>
           </div>
-          <div className="col-6 border p-2 border">
+          <div className="col-6  borderColor galleryBgr p-2">
             <div className="container  p-2 d-flex flex-wrap justify-content-between">
               {userImage.map((image) => (
                 <Link
                   to={`/single-image/${image._id}`}
-                  className="size d-flex justify-content-center align-items-center mb-2"
+                  className="size d-flex justify-content-center align-items-center mb-2 "
                 >
                   <img
                     src={image.postedImage}
@@ -68,7 +68,7 @@ const ProfilePage = () => {
             </div>
           </div>
           <div className="col-3  d-flex flex-column justify-content-around align-items-center">
-            <Link to="/addPost" className="btn btn-info w-50">
+            <Link to="/addPost" className="btn addBtnColor w-50">
               Add post
             </Link>
             <div className="chat">chat here</div>
