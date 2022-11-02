@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 const ProfilePage = () => {
   const [userImage, setUserImage] = useState([]);
-  const [user, setUser] = useState("");
+  const navigate=useNavigate();
+  // const [user, setUser] = useState("");
   // const { _id } = useParams();
   // useEffect(() => {
   //   axios
@@ -24,13 +25,20 @@ const ProfilePage = () => {
       })
       .catch((err) => console.log(err));
   }, []);
-
+const logout=(e)=>{
+  axios.get('http://localhost:8000/api/logout',{withCredentials:true})
+  .then(res=>{navigate('/')})
+  .catch(err=>console.log(err))
+}
   return (
     <div className="container">
       <div className="row">
-        <div className="col-12 picGram">
-          <h2 className="p-3">PicGram</h2>
-        </div>
+        <nav className="navbar col-12 picGram">
+          <div className="container-fluid">
+            <h2 className="">PicGram</h2>
+            <button className="btn logoutBtn" onClick={logout}>Logout</button>
+          </div>
+        </nav>
         <div className="container d-flex bodyColor p-3">
           <div className="col-3  pe-3">
             <div className="container text-center borderColor p-2 mb-3">

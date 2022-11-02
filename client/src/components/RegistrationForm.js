@@ -9,7 +9,7 @@ const RegistrationForm = () => {
   // const [dateOfBirth, setDateOfBirth] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  // const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
   const submitHandler = (e) => {
@@ -21,7 +21,6 @@ const RegistrationForm = () => {
           firstName,
           lastName,
           email,
-          // dateOfBirth,
           password,
           confirmPassword,
         },
@@ -33,22 +32,20 @@ const RegistrationForm = () => {
       })
       .catch((err) => {
         console.log(err);
-        // setErrors(err.response.data.errors);
+        setErrors(err.response.data.errors);
       });
   };
 
   return (
     <div className="container">
       <div className="row">
-        {/* <Link to={`/profile-page`}>profile page</Link> */}
-        <div className="col-12 picGram">
-          <h2 className="p-3">PicGram</h2>
+        <div className="col-12 picGram p-3 d-flex justify-content-between align-items-center">
+          <h2 className="">PicGram</h2>
+          <Link to="/" className="text-light">Already have an account? Log in</Link>
         </div>
-        <div className="container reg-page-bgc d-flex ">
-        <div className="col col-5 me-4">
-          <img className="reg-page-img" src="./images/1.jpg" alt="" />
-        </div>
-        <form className="userForm col col-6 p-4 borderColor" onSubmit={submitHandler}>
+        <div className="container reg-page-bgc p-4">
+       
+        <form className="userForm col col-8 mx-auto p-4 borderColor" onSubmit={submitHandler}>
           <div className="mb-3">
             <label htmlFor="fName" className="form-label reg-form-label">
               First Name *
@@ -59,9 +56,9 @@ const RegistrationForm = () => {
               id="fName"
               onChange={(e) => setFirstName(e.target.value)}
             />
-            {/* {errors.firstName ? (
+            {errors.firstName ? (
               <span className="text-danger">{errors.firstName.message}</span>
-            ) : null} */}
+            ) : null}
           </div>
           <div className="mb-3">
             <label htmlFor="lname" className="form-label reg-form-label">
@@ -73,9 +70,9 @@ const RegistrationForm = () => {
               id="lName"
               onChange={(e) => setLastName(e.target.value)}
             />
-            {/* {errors.lastName ? (
+            {errors.lastName ? (
               <span className="text-danger">{errors.lastName.message}</span>
-            ) : null} */}
+            ) : null}
           </div>
           <div className="mb-3">
             <label htmlFor="email" className="form-label reg-form-label">
@@ -87,25 +84,10 @@ const RegistrationForm = () => {
               id="email"
               onChange={(e) => setEmail(e.target.value)}
             />
-            {/* {errors.email ? (
+            {errors.email ? (
               <span className="text-danger">{errors.email.message}</span>
-            ) : null} */}
+            ) : null}
           </div>
-
-          {/* <div className="mb-3">
-          <label htmlFor="DOB" className="form-label">
-            Date of Birth *
-          </label>
-          <input
-            type="Date"
-            className="form-control"
-            id="DOB"
-            onChange={(e) => setDateOfBirth(e.target.value)}
-          />
-           {errors.dateOfBirth ? (
-            <span className="text-danger">{errors.dateOfBirth.message}</span>
-          ) : null}
-        </div> */}
           <div className="mb-3">
             <label htmlFor="password" className="form-label reg-form-label">
               Password *
@@ -118,9 +100,9 @@ const RegistrationForm = () => {
                 setPassword(e.target.value);
               }}
             />
-            {/* {errors.password ? (
+            {errors.password ? (
               <span className="text-danger">{errors.password.message}</span>
-            ) : null} */}
+            ) : null}
           </div>
           <div className="mb-3">
             <label htmlFor="ConfirmPassword" className="form-label reg-form-label">
@@ -134,14 +116,14 @@ const RegistrationForm = () => {
                 setConfirmPassword(e.target.value);
               }}
             />
-            {/* {errors.password ? (
+            {errors.password ? (
               <span className="text-danger">{errors.password.message}</span>
-            ) : null} */}
+            ) : null}
           </div>
           <div className="mb-3 reg-form-label">* required items</div>
           <div className="mb-3 form-check"></div>
           <button type="submit" className="btn btn-primary w-100">
-            Submit
+            Sign Up
           </button>
         </form>
         </div>

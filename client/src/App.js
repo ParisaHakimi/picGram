@@ -7,15 +7,17 @@ import EditProfile from "./components/EditProfile";
 import ProfilePage from "./components/ProfilePage";
 import SingleImage from "./components/SingleImage";
 import RegistrationForm from "./components/RegistrationForm";
+import Login from "./components/Login";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<Login/>}/>
           <Route path="/profile-page" element={<ProfilePage />} />
           <Route path="/edit-profile" element={<EditProfile />} />
-          <Route path="/" element={<RegistrationForm />} />
+          <Route path="/registration" element={<RegistrationForm />} />
           <Route path="/addPost" element={<AddPost />} />
           <Route path="/single-image/:id" element={<SingleImage />} />
           <Route path="edit-photo/:id" element={<EditPhoto />} />
