@@ -17,7 +17,7 @@ module.exports = {
         },
         SECRET
       );
-      // return a response to the user as a cookie
+      // return a response(JWT) to the user as a cookie
       res
         .status(201)
         .cookie("userToken", userToken, {
@@ -33,6 +33,7 @@ module.exports = {
     }
   },
   loginUser: async (req, res) => {
+    // find a user who is already exist in our database based on their email
     const user = await User.findOne({ email: req.body.email });
     if (!user) {
       res.status(400).json({ error: "invalid email/password" });
@@ -42,10 +43,12 @@ module.exports = {
         req.body.password,
         user.password
       );
+      console.log(isPasswordValid)
       if (!isPasswordValid) {
-        res.status(400).json({ error: "invalid email/password" });
+        res.status(400).json({ error: "invalid email/password2" });
       } else {
         const userToken = jwt.sign(
+          // it doesn't have to be all the information, it can be some data that's part of the payload
           { _id: user._id, email: user.email },
           SECRET
         );

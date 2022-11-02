@@ -5,6 +5,8 @@ import axios from "axios";
 const AddPost = () => {
   const [postedImageDescription, setPostedImageDescription] = useState("");
   const [postedImage, setPostedImage] = useState("");
+  const [errors, setErrors] = useState({});
+
   const navigate = useNavigate();
   const submitHandler = (e) => {
     e.preventDefault();
@@ -15,14 +17,20 @@ const AddPost = () => {
       })
       .then((res) => {
         // console.log(res.data);
-        navigate("/")
+        navigate("/");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setErrors(err.response.data.errors);
+      });
   };
   return (
     <div className="container bodyColor">
       <div className="row">
-        <form className="addPostForm col-8 p-5 borderColor" onSubmit={submitHandler}>
+        <form
+          className="addPostForm col-8 p-5 borderColor"
+          onSubmit={submitHandler}
+        >
           <div className="mb-4">
             <h2 className="text-center">Create Post</h2>
           </div>
@@ -33,6 +41,11 @@ const AddPost = () => {
               placeholder="What's on your mind?"
               onChange={(e) => setPostedImageDescription(e.target.value)}
             ></textarea>
+            {errors.postedImageDescription ? (
+              <span className="text-danger">
+                {errors.postedImageDescription.message}
+              </span>
+            ) : null}
           </div>
           <div className="mb-3">
             <input
@@ -41,9 +54,14 @@ const AddPost = () => {
               id="formFile"
               onChange={(e) => setPostedImage(e.target.value)}
             />
+            {errors.postedImage ? (
+              <span className="text-danger">{errors.postedImage.message}</span>
+            ) : null}
           </div>
           <div className="mb-3 d-flex justify-content-between align-items-center">
-        <Link className="btn backToHomeBtn w-25 me-2" to="/profile-page">Back to Home</Link>
+            <Link className="btn backToHomeBtn w-25 me-2" to="/profile-page">
+              Back to Home
+            </Link>
 
             <button className="btn addBtnColor w-75">Add</button>
           </div>

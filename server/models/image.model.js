@@ -3,9 +3,13 @@ const ImageSchema = mongoose.Schema(
   {
     postedImage: {
       type: String,
+      required: [true, "Image is required"],
+
     },
     postedImageDescription: {
       type: String,
+      required: [true, "Description is required"],
+
     },
     postedImageComments: {
       type: String,

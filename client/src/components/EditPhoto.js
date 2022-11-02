@@ -5,6 +5,8 @@ import axios from "axios";
 const EditPhoto = () => {
   const [postedImageDescription, setPostedImageDescription] = useState("");
   const [postedImage, setPostedImage] = useState("");
+  const [errors, setErrors] = useState({});
+
   const navigate = useNavigate();
   const { id } = useParams();
   useEffect(() => {
@@ -28,12 +30,14 @@ const EditPhoto = () => {
       .then((res) => {
         navigate(`/single-image/${id}`);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setErrors(err.response.data.errors);
+      });
   };
   return (
     <div className="container">
       <div className="row">
-        
         <form className="addPostForm col-8 p-5 border" onSubmit={submitHandler}>
           <div className="mb-4">
             <h2 className="text-center">Edit Post</h2>
@@ -46,6 +50,11 @@ const EditPhoto = () => {
               value={postedImageDescription}
               onChange={(e) => setPostedImageDescription(e.target.value)}
             ></textarea>
+            {errors.postedImageDescription ? (
+              <span className="text-danger">
+                {errors.postedImageDescription.message}
+              </span>
+            ) : null}
           </div>
           <div className="mb-3">
             <input
@@ -55,9 +64,17 @@ const EditPhoto = () => {
               value={postedImage}
               onChange={(e) => setPostedImage(e.target.value)}
             />
+            {errors.postedImage ? (
+              <span className="text-danger">{errors.postedImage.message}</span>
+            ) : null}
           </div>
           <div className="mb-3 d-flex justify-content-between align-items-center">
-          <Link className="btn backToHomeBtn w-25 me-2" to={`/single-image/${id}`}>Back</Link>
+            <Link
+              className="btn backToHomeBtn w-25 me-2"
+              to={`/single-image/${id}`}
+            >
+              Back
+            </Link>
             <button className="btn btn-success w-75">Submit</button>
           </div>
         </form>

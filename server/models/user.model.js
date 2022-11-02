@@ -16,20 +16,20 @@ const UserSchema = mongoose.Schema(
     email: {
       type: String,
       // trim: true,
-      lowercase: true,
+      // lowercase: true,
       // unique: true,
       required: [true, "Email is required"],
-      validate: {
-        validator: (val) => /^([\w-\.]+@([\w-]+\.)+[\w-]+)?$/.test(val),
-        message: "Please enter a valid email",
-      },
+      // validate: {
+      //   validator: (val) => /^([\w-\.]+@([\w-]+\.)+[\w-]+)?$/.test(val),
+      //   message: "Please enter a valid email",
+      // },
     },
     // gender: { type: String, enum: ["female", "male"] },
-    dateOfBirth: {
-      type: Date,
-      required: [true, "Birth date is required"],
-      // min: "1-1-2009",
-    },
+    // dateOfBirth: {
+    //   type: Date,
+    //   required: [true, "Birth date is required"],
+    //   min: "1-1-2009",
+    // },
     password: {
       type: String,
       required: [true, "password is required"],

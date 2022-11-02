@@ -7,9 +7,9 @@ const UserForm = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [gender, setGender] = useState("");
-  const [dateOfBirth, setDateOfBirth] = useState("");
+  // const [dateOfBirth, setDateOfBirth] = useState("");
   const [password, setPassword] = useState("");
-  const [profilePic, setProfilePic] = useState("");
+  // const [profilePic, setProfilePic] = useState("");
   const [errors, setErrors] = useState({});
   // const [userId, setUserId] = useState("");
   const navigate = useNavigate();
@@ -22,9 +22,9 @@ const UserForm = () => {
         lastName,
         email,
         // gender,
-        dateOfBirth,
+        // dateOfBirth,
         password,
-        profilePic,
+        // profilePic,
       })
       .then((res) => {
         console.log(res.data);
@@ -64,7 +64,7 @@ const UserForm = () => {
             id="lName"
             onChange={(e) => setLastName(e.target.value)}
           />
-           {errors.lastName ? (
+          {errors.lastName ? (
             <span className="text-danger">{errors.lastName.message}</span>
           ) : null}
         </div>
@@ -78,7 +78,7 @@ const UserForm = () => {
             id="email"
             onChange={(e) => setEmail(e.target.value)}
           />
-           {errors.email ? (
+          {errors.email ? (
             <span className="text-danger">{errors.email.message}</span>
           ) : null}
         </div>
@@ -92,7 +92,7 @@ const UserForm = () => {
             <option value="male">Male</option>
           </select>
         </div> */}
-        <div className="mb-3">
+        {/* <div className="mb-3">
           <label htmlFor="DOB" className="form-label">
             Date of Birth *
           </label>
@@ -116,7 +116,7 @@ const UserForm = () => {
             id="profilePic"
             onChange={(e) => setProfilePic(e.target.value)}
           />
-        </div>
+        </div> */}
         <div className="mb-3">
           <label htmlFor="password" className="form-label">
             Password *
@@ -129,7 +129,7 @@ const UserForm = () => {
               setPassword(e.target.value);
             }}
           />
-           {errors.password ? (
+          {errors.password ? (
             <span className="text-danger">{errors.password.message}</span>
           ) : null}
         </div>
