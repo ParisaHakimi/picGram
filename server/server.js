@@ -7,7 +7,7 @@ const cookieParser=require('cookie-parser')
 // middleware for post request
 app.use(express.json(), express.urlencoded({ extended: true }));
 // middleware for cookie parser
-// app.use(cookieParser());
+app.use(cookieParser());
 // middleware for connect server to client
 app.use(
   cors({credentials:true,

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
-// const {ImageSchema} =require('./image.model')
+// const { ImageSchema } = require("./image.model");
 const UserSchema = mongoose.Schema(
   {
     firstName: {
@@ -24,12 +24,6 @@ const UserSchema = mongoose.Schema(
       //   message: "Please enter a valid email",
       // },
     },
-    // gender: { type: String, enum: ["female", "male"] },
-    // dateOfBirth: {
-    //   type: Date,
-    //   required: [true, "Birth date is required"],
-    //   min: "1-1-2009",
-    // },
     password: {
       type: String,
       required: [true, "password is required"],
@@ -39,32 +33,32 @@ const UserSchema = mongoose.Schema(
       type: String,
     },
     // refrencing to the image model
-    // images:[ImageSchema]
+    // images: [ImageSchema],
     // image: [{ type: mongoose.Schema.Types.ObjectId, ref: "Image" }],
   },
   { timestamps: true }
 );
 // virtual is a property that is not stored in MongoDB, it creates a virtual field
-// UserSchema.virtual("confirmPassword")
-//   .get(() => this._confirmPassword)
-//   .set((value) => (this._confirmPassword = value));
-//Mongoose middleware
-// UserSchema.pre("validate", function (next) {
-//   if (this.password !== this.confirmPassword) {
-//     this.invalidate("confirmPassword", "Password must match confirm password");
-//   }
-//   next();
-// });
+UserSchema.virtual("confirmPassword")
+  .get(() => this._confirmPassword)
+  .set((value) => (this._confirmPassword = value));
+// Mongoose middleware
+UserSchema.pre("validate", function (next) {
+  if (this.password !== this.confirmPassword) {
+    this.invalidate("confirmPassword", "Password must match confirm password");
+  }
+  next();
+});
 
-// UserSchema.pre("save", async function (next) {
-//   try {
-//     const hashedPassword = await bcrypt.hash(this.password, 10);
-//     console.log('hashed password: ',hashedPassword)
-//     this.password = hashedPassword;
-//     next();
-//   } catch {
-//     console.log("Erros in save", error);
-//   }
-// });
+UserSchema.pre("save", async function (next) {
+  try {
+    const hashedPassword = await bcrypt.hash(this.password, 10);
+    console.log("hashed password: ", hashedPassword);
+    this.password = hashedPassword;
+    next();
+  } catch {
+    console.log("Erros in save", error);
+  }
+});
 
 module.exports = mongoose.model("User", UserSchema);

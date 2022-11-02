@@ -6,7 +6,7 @@ import EditPhoto from "./components/EditPhoto";
 import EditProfile from "./components/EditProfile";
 import ProfilePage from "./components/ProfilePage";
 import SingleImage from "./components/SingleImage";
-import UserForm from "./components/UserForm";
+import RegistrationForm from "./components/RegistrationForm";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <Routes>
           <Route path="/profile-page" element={<ProfilePage />} />
           <Route path="/edit-profile" element={<EditProfile />} />
-          <Route path="/" element={<UserForm />} />
+          <Route path="/" element={<RegistrationForm />} />
           <Route path="/addPost" element={<AddPost />} />
           <Route path="/single-image/:id" element={<SingleImage />} />
           <Route path="edit-photo/:id" element={<EditPhoto />} />

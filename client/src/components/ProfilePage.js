@@ -5,15 +5,15 @@ const ProfilePage = () => {
   const [userImage, setUserImage] = useState([]);
   const [user, setUser] = useState("");
   // const { _id } = useParams();
-  useEffect(() => {
-    axios
-      .get(`http://localhost:8000/api/user/`)
-      .then((res) => {
-        console.log("one user:", res.data.firstName);
-        setUser(res.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get(`http://localhost:8000/api/user/`)
+  //     .then((res) => {
+  //       console.log("one user:", res.data.firstName);
+  //       setUser(res.data);
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, []);
 
   useEffect(() => {
     axios
@@ -50,8 +50,10 @@ const ProfilePage = () => {
             </div>
             <div className="container">
               <p>
-               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est at accusamus dolore veniam cum ullam quaerat id? Esse, ut. Consequuntur dolor esse officiis, illum iste vel autem incidunt voluptate error.
-               
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est at
+                accusamus dolore veniam cum ullam quaerat id? Esse, ut.
+                Consequuntur dolor esse officiis, illum iste vel autem incidunt
+                voluptate error.
               </p>
               <button type="button" className="btn editBtnColor w-100">
                 Edit Profile

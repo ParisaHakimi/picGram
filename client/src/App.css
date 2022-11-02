@@ -9,9 +9,19 @@
   background-color: #3c4048;
   color: #00abb3;
 }
+.reg-page-bgc{
+  background-color: #3c4048;
+
+}
 .bodyColor {
   background-color: #eaeaea;
   min-height: 90vh;
+}
+.reg-page-img{
+  width: 100%;
+  height: 90vh;
+  object-fit: cover;
+
 }
 .backToHomeBtn{
   background-color: #C98474;
@@ -23,6 +33,9 @@
 }
 .borderColor {
   border: 1px solid #b2b2b2;
+}
+.reg-form-label{
+  color:#eaeaea;
 }
 .editBtnColor {
   background-color: #4c6793;
@@ -56,11 +69,14 @@
   background-color: #ccc;
   text-align: center;
 }
-.addPostForm,
-.userForm {
+.addPostForm{
   /* background-color: aquamarine; */
   margin: 100px auto;
   border-radius: 10px;
+}
+.userForm{
+  border-radius: 10px;
+
 }
 .gallery {
   width: 100%;

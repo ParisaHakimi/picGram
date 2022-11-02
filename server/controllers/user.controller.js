@@ -25,13 +25,14 @@ module.exports = {
           expires: new Date(Date.now() + 90000),
         })
         .json({
-          successMessage: "User logged in",
+          successMessage: "congratulation you logged in",
           user: newUser,
         });
     } catch (error) {
       res.status(400).json(error);
     }
   },
+  // remember to uncomment the middleware for confirmPassword on user.model file
   loginUser: async (req, res) => {
     // find a user who is already exist in our database based on their email
     const user = await User.findOne({ email: req.body.email });
@@ -43,9 +44,9 @@ module.exports = {
         req.body.password,
         user.password
       );
-      console.log(isPasswordValid)
+      console.log(isPasswordValid);
       if (!isPasswordValid) {
-        res.status(400).json({ error: "invalid email/password2" });
+        res.status(400).json({ error: "invalid email/password" });
       } else {
         const userToken = jwt.sign(
           // it doesn't have to be all the information, it can be some data that's part of the payload
@@ -66,5 +67,9 @@ module.exports = {
     } catch (error) {
       res.status(400).json(error);
     }
+  },
+  logoutUser: (req, res) => {
+    res.clearCookie("userToken");
+    res.json({ success: "Logged out" });
   },
 };
