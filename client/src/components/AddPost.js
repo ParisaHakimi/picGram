@@ -43,7 +43,7 @@ const AddPost = () => {
             />
           </div>
           <div className="mb-3 d-flex justify-content-between align-items-center">
-        <Link className="btn backToHomeBtn w-25 me-2" to="/">Back to Home</Link>
+        <Link className="btn backToHomeBtn w-25 me-2" to="/profile-page">Back to Home</Link>
 
             <button className="btn addBtnColor w-75">Add</button>
           </div>

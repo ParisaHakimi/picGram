@@ -27,7 +27,7 @@ const SingleImage = () => {
   };
   return (
     <div className="container p-3 w-75 bodyColor">
-       <Link className="btn backToHomeBtn w-25 mb-3" to="/">Back to Home</Link>
+       <Link className="btn backToHomeBtn w-25 mb-3" to="/profile-page">Back to Home</Link>
       <div className="row mb-2">
         <div className="col-10 text-center  p-2 mx-auto singleImgBorder">
           <img src={image.postedImage} alt="" className="singleImage" />

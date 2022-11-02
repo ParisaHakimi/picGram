@@ -16,4 +16,6 @@ const ImageSchema = mongoose.Schema(
   },
   { timestamps: true }
 );
+// I'm not making image model on this page.just sending it to the user.model
+// module.exports={ImageSchema}
 module.exports = mongoose.model("Image", ImageSchema);

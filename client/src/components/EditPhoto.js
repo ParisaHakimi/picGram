@@ -33,7 +33,7 @@ const EditPhoto = () => {
   return (
     <div className="container">
       <div className="row">
-        <Link to={`/single-image/${id}`}>Back</Link>
+        
         <form className="addPostForm col-8 p-5 border" onSubmit={submitHandler}>
           <div className="mb-4">
             <h2 className="text-center">Edit Post</h2>
@@ -56,8 +56,9 @@ const EditPhoto = () => {
               onChange={(e) => setPostedImage(e.target.value)}
             />
           </div>
-          <div className="mb-3">
-            <button className="btn btn-success w-100">Submit</button>
+          <div className="mb-3 d-flex justify-content-between align-items-center">
+          <Link className="btn backToHomeBtn w-25 me-2" to={`/single-image/${id}`}>Back</Link>
+            <button className="btn btn-success w-75">Submit</button>
           </div>
         </form>
       </div>
