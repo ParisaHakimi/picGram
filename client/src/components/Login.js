@@ -33,7 +33,7 @@ const Login = () => {
     <div className="container reg-page-bgc">
       <div className="row p-5">
         <div className="col col-5 me-4">
-          <img className="reg-page-img" src="./images/1.jpg" alt="" />
+          <img className="reg-page-img" src="./images/4.jpg" alt="" />
         </div>
         <div className="container col col-6">
           <h2 className="p-3 welcome"> Welcome to PicGram!</h2>
