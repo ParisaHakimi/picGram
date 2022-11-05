@@ -39,7 +39,7 @@ const RegistrationForm = () => {
     <div className="container">
       <div className="row">
         <div className="col-12 picGram p-3 d-flex justify-content-between align-items-center">
-          <h2 className="">PicGram</h2>
+          <h2 className="picGramFont">PicGram</h2>
           <Link to="/" className="text-light">Already have an account? Log in</Link>
         </div>
         <div className="container reg-page-bgc p-4">

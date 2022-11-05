@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate,useParams } from "react-router-dom";
 import axios from "axios";
 const ProfilePage = () => {
   const [userImage, setUserImage] = useState([]);
-  const navigate=useNavigate();
-  // const [user, setUser] = useState("");
-  // const { _id } = useParams();
-  // useEffect(() => {
-  //   axios
-  //     .get(`http://localhost:8000/api/user/`)
-  //     .then((res) => {
-  //       console.log("one user:", res.data.firstName);
-  //       setUser(res.data);
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, []);
+  const [user, setUser] = useState({})
+  const navigate = useNavigate();
+// const {id}=useParams();
+// useEffect(() => {
+//  axios.get(`http://localhosr:8000/api/login/userId`)
+//  .then(res=>{
+//   console.log(res.data);
+//   setUser(res.data)
+//  })
+//  .catch(err=>console.log(err))
+// }, [])
 
   useEffect(() => {
     axios
@@ -25,18 +24,23 @@ const ProfilePage = () => {
       })
       .catch((err) => console.log(err));
   }, []);
-const logout=(e)=>{
-  axios.get('http://localhost:8000/api/logout',{withCredentials:true})
-  .then(res=>{navigate('/')})
-  .catch(err=>console.log(err))
-}
+  const logout = (e) => {
+    axios
+      .get("http://localhost:8000/api/logout", { withCredentials: true })
+      .then((res) => {
+        navigate("/");
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <div className="container">
       <div className="row">
         <nav className="navbar col-12 picGram">
           <div className="container-fluid">
-            <h2 className="">PicGram</h2>
-            <button className="btn logoutBtn" onClick={logout}>Logout</button>
+            <h2 className="picGramFont">PicGram</h2>
+            <button className="btn logoutBtn" onClick={logout}>
+              Logout
+            </button>
           </div>
         </nav>
         <div className="container d-flex bodyColor p-3">
@@ -48,21 +52,25 @@ const logout=(e)=>{
                 className="rounded mx-auto d-block profileImage img-fluid"
               />
               <div className="container w-100 d-flex justify-content-around align-items-center mt-3">
-                <button type="button" className="btn editBtnColor circle">
+                <Link
+                  to={`/edit-profile/${user._id}`}
+                  className="btn editBtnColor circle"
+                >
                   <i className="fa fa-pencil" aria-hidden="true"></i>
-                </button>
-                <button type="button" className="btn btn-secondary circle">
+                </Link>
+                {/* <button type="button" className="btn editBtnColor circle">
+                  <i className="fa fa-pencil" aria-hidden="true"></i>
+                </button> */}
+                <Link className="btn btn-secondary circle">
                   <i className="fa fa-trash" aria-hidden="true"></i>
-                </button>
+                </Link>
+                {/* <button type="button" className="btn btn-secondary circle">
+                  <i className="fa fa-trash" aria-hidden="true"></i>
+                </button> */}
               </div>
             </div>
             <div className="container">
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est at
-                accusamus dolore veniam cum ullam quaerat id? Esse, ut.
-                Consequuntur dolor esse officiis, illum iste vel autem incidunt
-                voluptate error.
-              </p>
+              <h2>{user.firstName}</h2>
               <button type="button" className="btn editBtnColor w-100">
                 Edit Profile
               </button>

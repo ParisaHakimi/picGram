@@ -1,4 +1,9 @@
+// const { JsonWebTokenError } = require("jsonwebtoken");
 const Image = require("../models/image.model");
+const User = require("../models/user.model");
+const jwt = require("jsonwebtoken");
+const SECRET = process.env.SECRET_KEY;
+
 const showAllImage = (req, res) => {
   Image.find()
     .then((result) => {
@@ -30,9 +35,14 @@ const editExistingImage = (req, res) => {
     });
 };
 const createNewImage = (req, res) => {
+ const {_id}=jwt.verify(req.cookies.userToken,SECRET)
   Image.create(req.body)
     .then((result) => {
       res.json(result);
+      User.updateOne({ _id },{$push:{image:result._id}})
+      .catch(err=>res.status(400).json(err))
+      
+
     })
     .catch((err) => {
       res.status(400).json(err);

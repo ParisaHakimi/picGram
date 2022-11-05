@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const dbName = "userDB";
 mongoose
-  .connect(`mongodb://localhost/${dbName}`, {
+  .connect(`mongodb://127.0.0.1/${dbName}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

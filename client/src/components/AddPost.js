@@ -14,7 +14,7 @@ const AddPost = () => {
       .post("http://localhost:8000/api/addImage", {
         postedImage,
         postedImageDescription,
-      })
+      },{withCredentials:true})
       .then((res) => {
         // console.log(res.data);
         navigate("/");

@@ -34,7 +34,7 @@ const UserSchema = mongoose.Schema(
     },
     // refrencing to the image model
     // images: [ImageSchema],
-    // image: [{ type: mongoose.Schema.Types.ObjectId, ref: "Image" }],
+    image: [{ type: mongoose.Schema.Types.ObjectId, ref: "Image" }],
   },
   { timestamps: true }
 );

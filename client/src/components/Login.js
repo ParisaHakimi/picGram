@@ -8,25 +8,28 @@ const Login = () => {
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
-    axios
-      .post(
+    try {
+      let response = await axios.post(
         "http://localhost:8000/api/login",
         {
           email,
           password,
         },
-        { withCredentials: true, credentials: "include" }
-      )
-      .then((res) => {
-        console.log(res.data);
-        navigate("/profile-page");
-      })
-      .catch((err) => {
-        console.log(err);
-        setErrors(err.response.data.errors);
+        { withCredentials: true }
+      );
+      let logged = await axios.get("http://localhost:8000/api/getLoggedUser", {
+        withCredentials: true
       });
+      console.log(`email is: ${logged.data.email}`);
+      localStorage.setItem("getLoggedUser", JSON.stringify(logged.data));
+      console.log(`logged in user is: ${logged.data.firstName}`);
+      navigate("/profile-page");
+    } catch (err) {
+      console.log(err);
+      setErrors(err.response.data.errors);
+    }
   };
 
   return (
@@ -36,8 +39,7 @@ const Login = () => {
           <img className="reg-page-img" src="./images/4.jpg" alt="" />
         </div>
         <div className="container col col-6">
-          <h2 className="p-3 welcome"> Welcome to PicGram!</h2>
-
+          <h2 className="p-3 welcome picGramFont"> Welcome to PicGram</h2>
           <form className="userForm  p-4 borderColor" onSubmit={submitHandler}>
             <div className="mb-3">
               <label htmlFor="email" className="form-label reg-form-label">

@@ -5,6 +5,47 @@ const SECRET = process.env.SECRET_KEY;
 // const payload = { _id: newUser._id, email: newUser.email };
 
 module.exports = {
+  showAllUser: (req, res) => {
+    User.find()
+      .populate("image")
+      .then((result) => {
+        res.json(result);
+      })
+      .catch((err) => {
+        res.status(400).json(err);
+      });
+  },
+  showOneUser: (req, res) => {
+    User.findOne({ _id: req.params.id })
+      .then((result) => {
+        res.json(result);
+      })
+      .catch((err) => {
+        res.status(400).json(err);
+      });
+  },
+  editExistingUser: (req, res) => {
+    User.updateOne({ _id: req.params.id }, req.body, {
+      new: true,
+      runValidators: true,
+    })
+      .then((result) => {
+        res.json(result);
+      })
+      .catch((err) => {
+        res.status(400).json(err);
+      });
+  },
+  deleteExistingUser: (req, res) => {
+    User.deleteOne({ _id: req.params.id })
+      .then((result) => {
+        res.json(result);
+      })
+      .catch((err) => {
+        res.status(400).json(err);
+      });
+  },
+
   registerUser: async (req, res) => {
     try {
       // create a new user
@@ -67,6 +108,12 @@ module.exports = {
     } catch (error) {
       res.status(400).json(error);
     }
+  },
+  getLoggedUser: (req, res) => {
+    const decodedJWT = jwt.decode(req.cookies.userToken, { complete: true });
+    User.findById(decodedJWT.payload._id)
+      .then((result) => res.json(result))
+      .catch((err) => res.status(400).json(err));
   },
   logoutUser: (req, res) => {
     res.clearCookie("userToken");
