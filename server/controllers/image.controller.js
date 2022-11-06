@@ -41,8 +41,6 @@ const createNewImage = (req, res) => {
       res.json(result);
       User.updateOne({ _id },{$push:{image:result._id}})
       .catch(err=>res.status(400).json(err))
-      
-
     })
     .catch((err) => {
       res.status(400).json(err);

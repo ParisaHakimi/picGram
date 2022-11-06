@@ -1,26 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate,useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-const ProfilePage = () => {
+const ProfilePage = (props) => {
   const [userImage, setUserImage] = useState([]);
-  const [user, setUser] = useState({})
+  // const [user, setUser] = useState({})
   const navigate = useNavigate();
-// const {id}=useParams();
-// useEffect(() => {
-//  axios.get(`http://localhosr:8000/api/login/userId`)
-//  .then(res=>{
-//   console.log(res.data);
-//   setUser(res.data)
-//  })
-//  .catch(err=>console.log(err))
-// }, [])
-
+  const localUser = localStorage.getItem("getLoggedUser");
+  const loggedUser = JSON.parse(localUser);
+  console.log(props);
   useEffect(() => {
+    console.log("loggedUser: ", loggedUser._id);
+    console.log("image ", loggedUser.image);
+
     axios
-      .get(`http://localhost:8000/api/allImages`)
+      .get(`http://localhost:8000/api/getLoggedUser`, { withCredentials: true })
       .then((res) => {
         console.log("line 12 ", res.data);
-        setUserImage(res.data);
+        setUserImage(res.data.image);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -53,24 +49,26 @@ const ProfilePage = () => {
               />
               <div className="container w-100 d-flex justify-content-around align-items-center mt-3">
                 <Link
-                  to={`/edit-profile/${user._id}`}
+                  to={`/edit-profile/${loggedUser._id}`}
                   className="btn editBtnColor circle"
                 >
                   <i className="fa fa-pencil" aria-hidden="true"></i>
                 </Link>
-                {/* <button type="button" className="btn editBtnColor circle">
-                  <i className="fa fa-pencil" aria-hidden="true"></i>
-                </button> */}
                 <Link className="btn btn-secondary circle">
                   <i className="fa fa-trash" aria-hidden="true"></i>
                 </Link>
-                {/* <button type="button" className="btn btn-secondary circle">
-                  <i className="fa fa-trash" aria-hidden="true"></i>
-                </button> */}
               </div>
             </div>
             <div className="container">
-              <h2>{user.firstName}</h2>
+              <h4>
+                {loggedUser.firstName} {loggedUser.lastName}
+              </h4>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                dolores eligendi explicabo tempora fugiat! Fugiat, dicta
+                voluptas odio officia iure alias earum? Tempora quo excepturi,
+                ipsum debitis tenetur impedit accusamus!
+              </p>
               <button type="button" className="btn editBtnColor w-100">
                 Edit Profile
               </button>

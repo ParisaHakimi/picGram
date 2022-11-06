@@ -20,5 +20,8 @@ const ImageSchema = mongoose.Schema(
 );
 
 module.exports = mongoose.model("Image", ImageSchema);
+
+
+
 // I'm not making image model on this page.just sending it to the user.model
 // module.exports={ImageSchema}

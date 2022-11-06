@@ -21,7 +21,7 @@ const SingleImage = () => {
       .delete(`http://localhost:8000/api/deleteImage/${id}`)
       .then((res) => {
         console.log("Deleted from database");
-        navigate("/");
+        navigate("/profile-page");
       })
       .catch((err) => console.log(err));
   };

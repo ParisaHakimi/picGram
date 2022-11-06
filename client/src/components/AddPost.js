@@ -17,7 +17,7 @@ const AddPost = () => {
       },{withCredentials:true})
       .then((res) => {
         // console.log(res.data);
-        navigate("/");
+        navigate("/profile-page");
       })
       .catch((err) => {
         console.log(err);
