@@ -10,17 +10,17 @@ const EditProfile = () => {
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
   const { id } = useParams();
-  // useEffect(() => {
-  //   axios
-  //     .get(`http://localhost:8000/api/getLoggedUser`)
-  //     .then((res) => {
-  //       setFirstName(res.data.firstName);
-  //       setLastName(res.data.lastName);
-  //       setEmail(res.data.email);
-  //       setProfilePic(res.data.profilePic)
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, []);
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8000/api/getLoggedUser`, { withCredentials: true })
+      .then((res) => {
+        setFirstName(res.data.firstName);
+        setLastName(res.data.lastName);
+        setEmail(res.data.email);
+        setProfilePic(res.data.profilePic);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -59,6 +59,7 @@ const EditProfile = () => {
                 type="text"
                 className="form-control"
                 id="fName"
+                value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
               />
               {errors.firstName ? (
@@ -73,6 +74,7 @@ const EditProfile = () => {
                 type="text"
                 className="form-control"
                 id="lName"
+                value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
               />
               {errors.lastName ? (
@@ -87,10 +89,29 @@ const EditProfile = () => {
                 type="email"
                 className="form-control"
                 id="email"
+                value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
               {errors.email ? (
                 <span className="text-danger">{errors.email.message}</span>
+              ) : null}
+            </div>
+            <div className="mb-3">
+              <label
+                htmlFor="profileImage"
+                className="form-label reg-form-label"
+              >
+                Profile image
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="profileImage"
+                value={profilePic}
+                onChange={(e) => setProfilePic(e.target.value)}
+              />
+              {errors.profilePic ? (
+                <span className="text-danger">{errors.profilePic.message}</span>
               ) : null}
             </div>
             <div className="mb-3 form-check"></div>

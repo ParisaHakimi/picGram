@@ -17,6 +17,7 @@ module.exports = {
   },
   showOneUser: (req, res) => {
     User.findOne({ _id: req.params.id })
+    .populate("image")
       .then((result) => {
         res.json(result);
       })
@@ -112,7 +113,11 @@ module.exports = {
   getLoggedUser: (req, res) => {
     const decodedJWT = jwt.decode(req.cookies.userToken, { complete: true });
     User.findById(decodedJWT.payload._id)
-    .populate("image")
+      // .populate("firstName")
+      // .populate("lastName")
+      // .populate("email")
+      // .populate("profilePic")
+      .populate("image")
       .then((result) => res.json(result))
       .catch((err) => res.status(400).json(err));
   },

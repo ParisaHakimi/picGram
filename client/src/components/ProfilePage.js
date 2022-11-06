@@ -2,8 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 const ProfilePage = (props) => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [profilePic, setProfilePic] = useState("");
   const [userImage, setUserImage] = useState([]);
-  // const [user, setUser] = useState({})
   const navigate = useNavigate();
   const localUser = localStorage.getItem("getLoggedUser");
   const loggedUser = JSON.parse(localUser);
@@ -16,6 +19,10 @@ const ProfilePage = (props) => {
       .get(`http://localhost:8000/api/getLoggedUser`, { withCredentials: true })
       .then((res) => {
         console.log("line 12 ", res.data);
+        setFirstName(res.data.firstName);
+        setLastName(res.data.lastName);
+        setEmail(res.data.email);
+        setProfilePic(res.data.profilePic);
         setUserImage(res.data.image);
       })
       .catch((err) => console.log(err));
@@ -61,7 +68,7 @@ const ProfilePage = (props) => {
             </div>
             <div className="container">
               <h4>
-                {loggedUser.firstName} {loggedUser.lastName}
+                {firstName} {lastName}
               </h4>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
@@ -69,9 +76,7 @@ const ProfilePage = (props) => {
                 voluptas odio officia iure alias earum? Tempora quo excepturi,
                 ipsum debitis tenetur impedit accusamus!
               </p>
-              <button type="button" className="btn editBtnColor w-100">
-                Edit Profile
-              </button>
+              <Link className="btn editBtnColor w-100"  to={`/edit-profile/${loggedUser._id}`}>Edit Profile</Link>
             </div>
           </div>
           <div className="col-6  borderColor galleryBgr p-2">
