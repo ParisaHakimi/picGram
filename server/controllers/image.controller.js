@@ -1,4 +1,3 @@
-// const { JsonWebTokenError } = require("jsonwebtoken");
 const Image = require("../models/image.model");
 const User = require("../models/user.model");
 const jwt = require("jsonwebtoken");
@@ -24,7 +23,7 @@ const showOneImage = (req, res) => {
 };
 const editExistingImage = (req, res) => {
   Image.updateOne({ _id: req.params.id }, req.body, {
-    new: true,
+    new: true, //sending it back as a new object. it acts like a create, it sends back a whole object like a brand new
     runValidators: true,
   })
     .then((result) => {

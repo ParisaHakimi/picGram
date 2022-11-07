@@ -20,7 +20,7 @@ const Login = () => {
         { withCredentials: true }
       );
       let logged = await axios.get("http://localhost:8000/api/getLoggedUser", {
-        withCredentials: true
+        withCredentials: true,
       });
       console.log(`email is: ${logged.data.email}`);
       localStorage.setItem("getLoggedUser", JSON.stringify(logged.data));
@@ -80,9 +80,9 @@ const Login = () => {
             <Link to="/registration" className="text-light">
               Don't have an account? Register
             </Link>
-            <Link to="/profile-page" className="text-light">
+            {/* <Link to="/profile-page" className="text-light">
               Jump in without registration(recruter friendly)
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>

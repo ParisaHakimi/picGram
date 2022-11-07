@@ -17,7 +17,7 @@ module.exports = {
   },
   showOneUser: (req, res) => {
     User.findOne({ _id: req.params.id })
-    .populate("image")
+      .populate("image")
       .then((result) => {
         res.json(result);
       })
@@ -113,6 +113,7 @@ module.exports = {
   getLoggedUser: (req, res) => {
     const decodedJWT = jwt.decode(req.cookies.userToken, { complete: true });
     User.findById(decodedJWT.payload._id)
+      // populate will allow it to find the object id refs and automatically run the queries for that effectively- populate enable you to inject the document into your parent
       // .populate("firstName")
       // .populate("lastName")
       // .populate("email")
