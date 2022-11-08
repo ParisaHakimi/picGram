@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate,useParams } from "react-router-dom";
 import axios from "axios";
 
 const AddPost = () => {
   const [postedImageDescription, setPostedImageDescription] = useState("");
   const [postedImage, setPostedImage] = useState("");
   const [errors, setErrors] = useState({});
+  const { id } = useParams();
 
   const navigate = useNavigate();
   const submitHandler = (e) => {
@@ -17,7 +18,7 @@ const AddPost = () => {
       },{withCredentials:true})
       .then((res) => {
         // console.log(res.data);
-        navigate("/profile-page");
+        navigate(`/profile-page/${id}`);
       })
       .catch((err) => {
         console.log(err);

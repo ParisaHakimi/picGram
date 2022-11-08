@@ -17,7 +17,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />}/>
-          <Route path="/profile-page" element={<ProfilePage />} />
+          <Route path="/profile-page/:id" element={<ProfilePage />} />
           <Route path="/edit-profile/:id" element={<EditProfile />} />
           <Route path="/registration/" element={<RegistrationForm />} />
           <Route path="/addPost" element={<AddPost />} />

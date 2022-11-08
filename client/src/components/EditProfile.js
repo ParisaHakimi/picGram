@@ -32,7 +32,7 @@ const EditProfile = () => {
         profilePic,
       })
       .then((res) => {
-        navigate(`/profile-page`);
+        navigate(`/profile-page/${id}`);
       })
       .catch((err) => {
         console.log(err);

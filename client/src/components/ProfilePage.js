@@ -50,8 +50,8 @@ const ProfilePage = (props) => {
           <div className="col-3  pe-3">
             <div className="container text-center borderColor p-2 mb-3">
               <img
-                src="./images/profileImage.jpeg"
-                alt=""
+                src="../images/profileImage.jpeg"
+                alt="profile-image"
                 className="rounded mx-auto d-block profileImage img-fluid"
               />
               <div className="container w-100 d-flex justify-content-around align-items-center mt-3">
@@ -76,7 +76,12 @@ const ProfilePage = (props) => {
                 voluptas odio officia iure alias earum? Tempora quo excepturi,
                 ipsum debitis tenetur impedit accusamus!
               </p>
-              <Link className="btn editBtnColor w-100"  to={`/edit-profile/${loggedUser._id}`}>Edit Profile</Link>
+              <Link
+                className="btn editBtnColor w-100"
+                to={`/edit-profile/${loggedUser._id}`}
+              >
+                Edit Profile
+              </Link>
             </div>
           </div>
           <div className="col-6  borderColor galleryBgr p-2">

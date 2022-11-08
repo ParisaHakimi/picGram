@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link,useParams } from "react-router-dom";
 
 const RegistrationForm = () => {
   const [firstName, setFirstName] = useState("");
@@ -10,6 +10,7 @@ const RegistrationForm = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
+  const { id } = useParams();
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -27,7 +28,7 @@ const RegistrationForm = () => {
       )
       .then((res) => {
         console.log(res.data);
-        navigate("/profile-page");
+        navigate(`/profile-page/${id}`);
       })
       .catch((err) => {
         console.log(err);

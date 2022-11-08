@@ -16,12 +16,12 @@ const SingleImage = () => {
       })
       .catch((err) => console.log(err));
   }, []);
-  const deleteHandler = (id) => {
+  const deleteHandler = (deletId) => {
     axios
-      .delete(`http://localhost:8000/api/deleteImage/${id}`)
+      .delete(`http://localhost:8000/api/deleteImage/${deletId}`)
       .then((res) => {
         console.log("Deleted from database");
-        navigate("/profile-page");
+        navigate(`/profile-page/${id}`);
       })
       .catch((err) => console.log(err));
   };
