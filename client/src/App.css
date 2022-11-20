@@ -10,44 +10,44 @@
   color: #00abb3;
   border-bottom: 1px solid #eaeaea;
 }
-.picGramFont{
-  font-family: 'Griffy', cursive;
+.picGramFont {
+  font-family: "Griffy", cursive;
   /* font-family: 'Shadows Into Light'; */
 }
-.welcome{
+.welcome {
   color: #00abb3;
 }
-.reg-page-bgc{
+.reg-page-bgc {
   background-color: #3c4048;
-
 }
 .bodyColor {
   background-color: #eaeaea;
   min-height: 90vh;
 }
-.reg-page-img{
+.reg-page-img {
   width: 100%;
   height: 90vh;
   object-fit: cover;
-
 }
 
-.loginLinkContainer{
+.loginLinkContainer {
   height: 3.6rem;
 }
-.backToHomeBtn{
-  background-color: #C98474;
-  color: #3C2317;
+.backToHomeBtn {
+  background-color: #c98474;
+  color: #3c2317;
 }
 .profileImage {
   width: 150px;
   height: 150px;
+  border-radius: 50%;
+  border: 4px solid orangered;
 }
 .borderColor {
   border: 1px solid #b2b2b2;
 }
-.reg-form-label{
-  color:#eaeaea;
+.reg-form-label {
+  color: #eaeaea;
 }
 .editBtnColor {
   background-color: #4c6793;
@@ -57,15 +57,18 @@
   background-color: #4fa095;
   color: #eaeaea;
 }
-.logoutBtn{
+.logoutBtn {
   /* background-color: #F6F6C9; */
-  background-color: #FEC260;
+  background-color: #fec260;
 }
 .galleryBgr {
   background-color: #b2b2b2;
 }
 .circle {
   border-radius: 50%;
+}
+.galleryshadow {
+  box-shadow: 5px 5px 5px #3c4048;
 }
 .pink {
   background-color: pink;
@@ -85,14 +88,13 @@
   background-color: #ccc;
   text-align: center;
 }
-.addPostForm{
+.addPostForm {
   /* background-color: aquamarine; */
   margin: 100px auto;
   border-radius: 10px;
 }
-.userForm{
+.userForm {
   border-radius: 10px;
-
 }
 .gallery {
   width: 100%;

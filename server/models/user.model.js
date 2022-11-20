@@ -15,9 +15,9 @@ const UserSchema = mongoose.Schema(
     },
     email: {
       type: String,
-      // trim: true,
-      // lowercase: true,
-      // unique: true,
+      trim: true,
+      lowercase: true,
+      unique: true,
       required: [true, "Email is required"],
       // validate: {
       //   validator: (val) => /^([\w-\.]+@([\w-]+\.)+[\w-]+)?$/.test(val),
@@ -31,6 +31,9 @@ const UserSchema = mongoose.Schema(
     },
     profilePic: {
       type: String,
+    },
+    posts:{
+      type:Number,
     },
     // refrencing to the image model
     // images: [ImageSchema],

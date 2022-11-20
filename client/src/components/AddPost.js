@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate,useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 const AddPost = () => {
@@ -12,10 +12,14 @@ const AddPost = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8000/api/addImage", {
-        postedImage,
-        postedImageDescription,
-      },{withCredentials:true})
+      .post(
+        "http://localhost:8000/api/addImage",
+        {
+          postedImage,
+          postedImageDescription,
+        },
+        { withCredentials: true }
+      )
       .then((res) => {
         // console.log(res.data);
         navigate(`/profile-page/${id}`);
@@ -53,6 +57,7 @@ const AddPost = () => {
               className="form-control"
               type="text"
               id="formFile"
+              placeholder="Upload Image"
               onChange={(e) => setPostedImage(e.target.value)}
             />
             {errors.postedImage ? (
@@ -60,11 +65,16 @@ const AddPost = () => {
             ) : null}
           </div>
           <div className="mb-3 d-flex justify-content-between align-items-center">
-            <Link className="btn backToHomeBtn w-25 me-2" to="/profile-page">
-              Back to Home
+            <Link
+              className="btn backToHomeBtn w-25 me-2"
+              to="/profile-page/:id"
+            >
+              Home
             </Link>
 
-            <button className="btn addBtnColor w-75">Add</button>
+            <button className="btn addBtnColor w-75">
+              <i className="fa fa-upload me-3" aria-hidden="true"></i> Add
+            </button>
           </div>
         </form>
       </div>

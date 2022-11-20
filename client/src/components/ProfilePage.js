@@ -27,6 +27,7 @@ const ProfilePage = (props) => {
       })
       .catch((err) => console.log(err));
   }, []);
+
   const logout = (e) => {
     axios
       .get("http://localhost:8000/api/logout", { withCredentials: true })
@@ -47,65 +48,54 @@ const ProfilePage = (props) => {
           </div>
         </nav>
         <div className="container d-flex bodyColor p-3">
-          <div className="col-3  pe-3">
-            <div className="container text-center borderColor p-2 mb-3">
+          <div className="col-3 d-flex flex-column  align-items-center me-4" >
+            <div className="container mb-3">
               <img
                 src="../images/profileImage.jpeg"
                 alt="profile-image"
-                className="rounded mx-auto d-block profileImage img-fluid"
+                className=" mx-auto d-block profileImage img-fluid"
               />
-              <div className="container w-100 d-flex justify-content-around align-items-center mt-3">
-                <Link
-                  to={`/edit-profile/${loggedUser._id}`}
-                  className="btn editBtnColor circle"
-                >
-                  <i className="fa fa-pencil" aria-hidden="true"></i>
-                </Link>
-                <Link className="btn btn-secondary circle">
-                  <i className="fa fa-trash" aria-hidden="true"></i>
-                </Link>
-              </div>
             </div>
-            <div className="container">
+            <div className="container text-center mb-3">
               <h4>
                 {firstName} {lastName}
               </h4>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
-                dolores eligendi explicabo tempora fugiat! Fugiat, dicta
-                voluptas odio officia iure alias earum? Tempora quo excepturi,
-                ipsum debitis tenetur impedit accusamus!
-              </p>
-              <Link
-                className="btn editBtnColor w-100"
-                to={`/edit-profile/${loggedUser._id}`}
-              >
-                Edit Profile
-              </Link>
             </div>
-          </div>
-          <div className="col-6  borderColor galleryBgr p-2">
-            <div className="container  p-2 d-flex flex-wrap justify-content-between">
-              {userImage.map((image) => (
-                <Link
-                  to={`/single-image/${image._id}`}
-                  className="size d-flex justify-content-center align-items-center mb-2 "
-                >
-                  <img
-                    src={image.postedImage}
-                    alt=""
-                    className="rounded img-fluid gallery "
-                  />
-                </Link>
-              ))}
+            <div className="d-flex justify-content-between align-items-center mb-5 w-100">
+              <h6 className="text-center"> 10 posts</h6>
+              <h6 className="text-center">200 followers</h6>
+              <h6 className="text-center">230 following</h6>
             </div>
-          </div>
-          <div className="col-3  d-flex flex-column justify-content-around align-items-center">
-            <Link to="/addPost" className="btn addBtnColor w-50">
-              Add post
+            <Link
+              className="btn editBtnColor w-100"
+              to={`/edit-profile/${loggedUser._id}`}
+            >
+              <i className="fa fa-pencil me-3" aria-hidden="true"></i> Edit Profile
             </Link>
-            <div className="chat">chat here</div>
           </div>
+        
+        <div className="col-6  borderColor galleryBgr galleryshadow p-2">
+          <div className="container  p-2 d-flex flex-wrap justify-content-between">
+            {userImage.map((image) => (
+              <Link
+                to={`/single-image/${image._id}`}
+                className="size d-flex justify-content-center align-items-center mb-2 "
+              >
+                <img
+                  src={image.postedImage}
+                  alt=""
+                  className="rounded img-fluid gallery "
+                />
+              </Link>
+            ))}
+          </div>
+        </div>
+        <div className="col-3  d-flex flex-column justify-content-around align-items-center">
+          <Link to="/addPost" className="btn addBtnColor w-50">
+          <i className="fa fa-plus-circle me-2" aria-hidden="true"></i> New post
+          </Link>
+          <div className="chat">chat here</div>
+        </div>
         </div>
       </div>
     </div>
