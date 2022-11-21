@@ -7,7 +7,6 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
-  const { id } = useParams();
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -26,7 +25,7 @@ const Login = () => {
       console.log(`email is: ${logged.data.email}`);
       localStorage.setItem("getLoggedUser", JSON.stringify(logged.data));
       console.log(`logged in user is: ${logged.data.firstName}`);
-      navigate(`/profile-page/${id}`);
+      navigate(`/profile-page/${logged.data._id}`);
     } catch (err) {
       console.log(err);
       setErrors(err.response.data.errors);

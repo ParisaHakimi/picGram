@@ -67,7 +67,7 @@ const AddPost = () => {
           <div className="mb-3 d-flex justify-content-between align-items-center">
             <Link
               className="btn backToHomeBtn w-25 me-2"
-              to="/profile-page/:id"
+              to={`/profile-page/${id}`}
             >
               Home
             </Link>

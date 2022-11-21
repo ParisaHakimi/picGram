@@ -16,11 +16,11 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login />}/>
+          <Route path="/" element={<Login />} />
           <Route path="/profile-page/:id" element={<ProfilePage />} />
           <Route path="/edit-profile/:id" element={<EditProfile />} />
           <Route path="/registration/" element={<RegistrationForm />} />
-          <Route path="/addPost" element={<AddPost />} />
+          <Route path="/addPost/:id" element={<AddPost />} />
           <Route path="/single-image/:id" element={<SingleImage />} />
           <Route path="edit-photo/:id" element={<EditPhoto />} />
         </Routes>

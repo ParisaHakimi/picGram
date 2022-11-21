@@ -110,15 +110,14 @@ module.exports = {
       res.status(400).json(error);
     }
   },
-  getLoggedUser: (req, res) => {
-    const decodedJWT = jwt.decode(req.cookies.userToken, { complete: true });
+  getLoggedUser: async (req, res) => {
+    const decodedJWT = await jwt.decode(req.cookies.userToken, {
+      complete: true,
+    });
+    const loggedUser = await User.findById(decodedJWT.payload._id);
     decodedJWT &&
-      User.findById(decodedJWT.payload._id)
+      loggedUser
         // populate will allow it to find the object id refs and automatically run the queries for that effectively- populate enable you to inject the document into your parent
-        // .populate("firstName")
-        // .populate("lastName")
-        // .populate("email")
-        // .populate("profilePic")
         .populate("image")
         .then((result) => res.json(result))
         .catch((err) => res.status(400).json(err));
