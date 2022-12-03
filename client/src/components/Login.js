@@ -80,9 +80,10 @@ const Login = () => {
             <Link to="/registration" className="text-light">
               Don't have an account? Register
             </Link>
-            {/* <Link to="/profile-page" className="text-light">
+            <div className="text-light recruterFriendly">
               Jump in without registration(recruter friendly)
-            </Link> */}
+              <p className="text-light recruterPasscode">I wanted to showcase the validation abilities of the registration and login forms. If you are not interested in making a new account, you can use these passcodes instead: "Email:tina@email.com", "Password:12345"</p>
+            </div>
           </div>
         </div>
       </div>

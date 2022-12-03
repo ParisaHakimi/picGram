@@ -19,6 +19,7 @@
 }
 .reg-page-bgc {
   background-color: #3c4048;
+  min-height: 100vh;
 }
 .bodyColor {
   background-color: #eaeaea;
@@ -124,4 +125,33 @@
 }
 .pointer {
   cursor: pointer;
+}
+.recruterFriendly {
+  position: relative;
+  text-decoration: underline;
+}
+.recruterPasscode {
+  background-color: #00686e;
+  position: absolute;
+  width: 100%;
+  top: 140%;
+  left: 0;
+  transform: rotateX(90deg);
+  transform-origin: top center;
+  transition: 0.8s;
+  padding: 0.7rem;
+}
+.recruterPasscode::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: #00686e;
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translate(-50%, 0) rotate(45deg);
+}
+
+.recruterFriendly:hover > .recruterPasscode {
+  transform: rotateX(0);
 }
