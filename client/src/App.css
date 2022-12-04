@@ -10,6 +10,9 @@
   color: #00abb3;
   border-bottom: 1px solid #eaeaea;
 }
+.loginTextSection{
+  /* background-color: pink; */
+}
 .picGramFont {
   font-family: "Griffy", cursive;
   /* font-family: 'Shadows Into Light'; */
@@ -17,9 +20,13 @@
 .welcome {
   color: #00abb3;
 }
+.loginImg{
+ /* background-color: red; */
+}
 .reg-page-bgc {
   background-color: #3c4048;
-  min-height: 100vh;
+  min-height: 200vh;
+  /* height: auto; */
 }
 .bodyColor {
   background-color: #eaeaea;
@@ -31,9 +38,6 @@
   object-fit: cover;
 }
 
-.loginLinkContainer {
-  height: 3.6rem;
-}
 .backToHomeBtn {
   background-color: #c98474;
   color: #3c2317;
@@ -90,7 +94,6 @@
   text-align: center;
 }
 .addPostForm {
-  /* background-color: aquamarine; */
   margin: 100px auto;
   border-radius: 10px;
 }
@@ -154,4 +157,41 @@
 
 .recruterFriendly:hover > .recruterPasscode {
   transform: rotateX(0);
+}
+ 
+/* 425 767 */
+/* responsive */
+@media screen and (max-width:991px) {
+  .welcome{
+    text-align: center;
+    font-size: 1.4rem;
+  }
+  .loginLinkContainer {
+    text-align: center;
+  }
+}
+@media screen and (max-width:575px) {
+.loginImg{
+  position: relative;
+}
+ .loginImg::after{
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  top: 0;
+  left: 0;
+} 
+
+.login-page{
+  position: relative;
+}
+.loginTextSection{
+  /* background-color: pink; */
+  width: 80%;
+  margin: 5rem auto;
+  position: absolute;
+}
 }

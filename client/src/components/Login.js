@@ -34,11 +34,11 @@ const Login = () => {
 
   return (
     <div className="container reg-page-bgc">
-      <div className="row p-5">
-        <div className="col col-5 me-4">
+      <div className="row p-5 login-page">
+        <div className="col-xs-12 col-sm-5 loginImg">
           <img className="reg-page-img" src="./images/4.jpg" alt="" />
         </div>
-        <div className="container col col-6">
+        <div className="container col-xs-12 col-sm-7 loginTextSection">
           <h2 className="p-3 welcome picGramFont"> Welcome to PicGram</h2>
           <form className="userForm  p-4 borderColor" onSubmit={submitHandler}>
             <div className="mb-3">
@@ -76,7 +76,7 @@ const Login = () => {
               Log in
             </button>
           </form>
-          <div className="container d-flex flex-column justify-content-between align-items-center mt-3 loginLinkContainer">
+          <div className="container d-flex flex-column justify-content-between mt-3 loginLinkContainer">
             <Link to="/registration" className="text-light">
               Don't have an account? Register
             </Link>
