@@ -31,10 +31,11 @@ const Login = () => {
       setErrors(err.response.data.errors);
     }
   };
-
+// col-xs-12 col-sm-5
+// col-xs-12 col-sm-7
   return (
     <div className="container reg-page-bgc">
-      <div className="row p-5 login-page">
+      <div className="row p-5 login-page"> 
         <div className="col-xs-12 col-sm-5 loginImg">
           <img className="reg-page-img" src="./images/4.jpg" alt="" />
         </div>
