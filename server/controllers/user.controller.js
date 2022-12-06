@@ -64,7 +64,7 @@ module.exports = {
         .status(201)
         .cookie("userToken", userToken, {
           httpOnly: true,
-          expires: new Date(Date.now() + 90000),
+          expires: new Date(Date.now() + 900000),
         })
         .json({
           successMessage: "congratulation you logged in",
@@ -75,6 +75,7 @@ module.exports = {
     }
   },
   // remember to uncomment the middleware for confirmPassword on user.model file
+  // login user is using cookies
   loginUser: async (req, res) => {
     // find a user who is already exist in our database based on their email
     const user = await User.findOne({ email: req.body.email });
@@ -99,7 +100,7 @@ module.exports = {
           .status(201)
           .cookie("userToken", userToken, {
             httpOnly: true,
-            expires: new Date(Date.now() + 90000),
+            expires: new Date(Date.now() + 5400000),
           })
           .json({
             successMessage: "User logged in",
@@ -107,7 +108,7 @@ module.exports = {
           });
       }
     } catch (error) {
-      res.status(400).json(error);
+      res.status(400).json({ error: "invalid email/password" });
     }
   },
   getLoggedUser: async (req, res) => {

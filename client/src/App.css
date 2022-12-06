@@ -20,13 +20,8 @@
 .welcome {
   color: #00abb3;
 }
-.loginImg {
-  /* background-color: red; */
-}
 .reg-page-bgc {
   background-color: #3c4048;
-  /* min-height: 200vh; */
-  /* height: auto; */
 }
 .bodyColor {
   background-color: #eaeaea;
@@ -43,8 +38,8 @@
   color: #3c2317;
 }
 .profileImage {
-  width: 150px;
-  height: 150px;
+  width: 12rem;
+  height: 12rem;
   border-radius: 50%;
   border: 4px solid orangered;
 }
@@ -66,6 +61,12 @@
   /* background-color: #F6F6C9; */
   background-color: #fec260;
 }
+.options{
+  margin-bottom: 2rem;
+}
+.profileUserSection{
+  margin-right: 1.2rem;
+}
 .galleryBgr {
   background-color: #b2b2b2;
 }
@@ -84,8 +85,8 @@
 .olive {
   background-color: olive;
 }
-.size {
-  width: 32%;
+.galleryImg{
+width: 32%;
 }
 .chat {
   width: 80%;
@@ -213,7 +214,29 @@
 @media screen and (max-width: 424px) {
   .reg-page-bgc {
     min-height: 160vh;
-  }}
+  }
+.profileBody{
+  flex-direction: column;
+}
+.profileImage {
+  width: 9rem;
+  height: 9rem;
+}
+.options{
+  margin-bottom: 1rem;
+}
+.profileUserSection{
+  margin-right: 0;
+  margin-bottom: 1rem;
+
+}
+.galleryImg{
+  width: 100%;
+  }
+  .chat{
+    margin-top: 2rem;
+  }
+}
   @media screen and (max-width: 374px) {
     .reg-page-bgc {
       min-height: 180vh;
