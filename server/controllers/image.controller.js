@@ -45,6 +45,21 @@ const createNewImage = (req, res) => {
       res.status(400).json(err);
     });
 };
+const uploadFile=(req,res)=>{
+//  const {_id}=jwt.verify(req.cookies.userToken,SECRET)
+  if(req.file===null){
+    return res.status(400).json({msg:'No file uploaded'});
+  }
+  const file=req.files.file; //pull our file from req.files
+  // __dirname means current directory
+  file.mv(`${__dirname}/client/uploads/${file.name}`, err=>{
+    if(err){
+      console.log(err);
+      return res.status(500).send(err); //500 is server error
+    }
+    res.json({fileName:file.name,filePath:`/uploads/${file.name}`})
+  })
+}
 const deleteExistingImage = (req, res) => {
   Image.deleteOne({ _id: req.params.id })
     .then((result) => {
