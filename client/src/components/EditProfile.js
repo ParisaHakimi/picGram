@@ -48,7 +48,7 @@ const EditProfile = () => {
         </div>
         <div className="container reg-page-bgc p-4">
           <form
-            className="userForm col col-8 mx-auto p-4 borderColor"
+            className="userForm col-sm-8 mx-auto p-4 borderColor"
             onSubmit={submitHandler}
           >
             <div className="mb-3">

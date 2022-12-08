@@ -26,15 +26,15 @@ const SingleImage = () => {
       .catch((err) => console.log(err));
   };
   return (
-    <div className="container p-3 w-75 bodyColor">
+    <div className="container p-3 col-xs-6 col-sm-9 bodyColor">
        <Link className="btn backToHomeBtn w-25 mb-3" to={`/profile-page/${id}`}>Home</Link>
       <div className="row mb-2">
-        <div className="col-10 text-center  p-2 mx-auto singleImgBorder">
+        <div className="col-xs-10 text-center  p-2 mx-auto singleImgBorder">
           <img src={image.postedImage} alt="" className="singleImage" />
         </div>
       </div>
       <div className="row mb-2  d-flex justify-content-around">
-        <div className="col-3  ">
+        <div className="col-xs-5 col-sm-5 col-md-4 ">
           {like ? (
             <i
               onClick={() => {
@@ -55,12 +55,11 @@ const SingleImage = () => {
             ></i>
           )}
           <span className="ms-1 me-5">{likeCount} Like(s)</span>
-
           <button className="btn  circle">
             <i className="fa fa-comment-o " aria-hidden="true"></i>
           </button>
         </div>
-        <div className="col-3 d-flex justify-content-end">
+        <div className="  col-xs-5 col-sm-5 col-md-3 d-flex justify-content-end">
           <Link
             to={`/edit-photo/${image._id}`}
             className="btn editBtnColor circle me-3"

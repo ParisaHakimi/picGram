@@ -31,9 +31,9 @@ const AddPost = () => {
   };
   return (
     <div className="container bodyColor">
-      <div className="row">
+      <div className="row p-3">
         <form
-          className="addPostForm col-8 p-5 borderColor"
+          className="addPostForm col-sm-8 p-5 borderColor"
           onSubmit={submitHandler}
         >
           <div className="mb-4">

@@ -240,4 +240,9 @@ width: 32%;
   @media screen and (max-width: 374px) {
     .reg-page-bgc {
       min-height: 180vh;
-    }}
+    }
+  .backToLogin{
+    font-size: 1rem;
+    text-align: center;
+  }
+  }

@@ -41,13 +41,13 @@ const RegistrationForm = () => {
       <div className="row">
         <div className="col-12 picGram p-3 d-flex justify-content-between align-items-center">
           <h2 className="picGramFont">PicGram</h2>
-          <Link to="/" className="text-light">
+          <Link to="/" className="text-light backToLogin">
             Already have an account? Log in
           </Link>
         </div>
         <div className="container reg-page-bgc p-4">
           <form
-            className="userForm col col-8 mx-auto p-4 borderColor"
+            className="userForm col-sm-8 mx-auto p-4 borderColor"
             onSubmit={submitHandler}
           >
             <div className="mb-3">
