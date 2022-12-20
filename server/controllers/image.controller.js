@@ -33,18 +33,18 @@ const editExistingImage = (req, res) => {
       res.status(400).json(err);
     });
 };
-const createNewImage = (req, res) => {
- const {_id}=jwt.verify(req.cookies.userToken,SECRET)
-  Image.create(req.body)
-    .then((result) => {
-      res.json(result);
-      User.updateOne({ _id },{$push:{image:result._id}})
-      .catch(err=>res.status(400).json(err))
-    })
-    .catch((err) => {
-      res.status(400).json(err);
-    });
-};
+// const createNewImage = (req, res) => {
+//  const {_id}=jwt.verify(req.cookies.userToken,SECRET)
+//   Image.create(req.body)
+//     .then((result) => {
+//       res.json(result);
+//       User.updateOne({ _id },{$push:{image:result._id}})
+//       .catch(err=>res.status(400).json(err))
+//     })
+//     .catch((err) => {
+//       res.status(400).json(err);
+//     });
+// };
 const uploadFile=(req,res)=>{
 //  const {_id}=jwt.verify(req.cookies.userToken,SECRET)
   if(req.file===null){
@@ -52,7 +52,7 @@ const uploadFile=(req,res)=>{
   }
   const file=req.files.file; //pull our file from req.files
   // __dirname means current directory
-  file.mv(`${__dirname}/client/uploads/${file.name}`, err=>{
+  file.mv(`${__dirname}/client/public/uploads/${file.name}`, err=>{
     if(err){
       console.log(err);
       return res.status(500).send(err); //500 is server error
@@ -74,6 +74,7 @@ module.exports = {
   showAllImage,
   showOneImage,
   editExistingImage,
-  createNewImage,
+  // createNewImage,
+  uploadFile,
   deleteExistingImage,
 };
